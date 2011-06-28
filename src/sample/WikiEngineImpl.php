@@ -2,13 +2,19 @@
 require_once("WikiEngine.php");
 
 class WikiEngineImpl implements WikiEngine{
+  
+  const HEADER_PATTERN = "^(=+) .* (=+)$";
+  
   function toHtml($input){
     if( $input == null ) throw new InvalidArgumentException();
-    if ( strpos($input,"= ") === 0 && strrpos( $input, " =" ) === strlen($input) - 2 ) {
-      return "<h1>" . substr( $input, 2, strlen($input)-4 ) . "</h1>";
-    }
-    if ( strpos($input,"== ") === 0 && strrpos( $input, " ==" ) === strlen($input) - 3 ) {
-      return "<h2>" . substr( $input, 3, strlen($input)-6 ) . "</h2>";
+    if( mb_ereg( WikiEngineImpl::HEADER_PATTERN, $input, $match) ) {
+      $start = $match[1];
+      $end = $match[2];
+      if ( strlen( $start ) == strlen( $end ) ) {
+        $level = strlen( $start );
+        $body = substr( $input, $level + 1, strlen( $input ) - ($level+1)*2 );
+        return "<h" . $level . ">" . $body . "</h" . $level . ">";
+      }
     }
     return $input;
   }

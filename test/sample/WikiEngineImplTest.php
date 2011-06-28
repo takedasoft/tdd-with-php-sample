@@ -61,6 +61,45 @@ class WikiEngineImplTest extends PHPUnit_Framework_TestCase {
     $actual = $this->target->toHtml($input);
     $this->assertEquals($actual,$expected);
   }
+
+  /**
+   * @test
+   */
+  public function toHtml_level3() {
+    $input = "=== Level3 ===";
+    $expected = "<h3>Level3</h3>";
+    $actual = $this->target->toHtml($input);
+    $this->assertEquals($actual,$expected);
+  }
   
+  /**
+   * @test
+   */
+  public function toHtml_level4() {
+    $input = "==== Level4 ====";
+    $expected = "<h4>Level4</h4>";
+    $actual = $this->target->toHtml($input);
+    $this->assertEquals($actual,$expected);
+  }
+  
+  /**
+   * @test
+   */
+  public function toHtml_level5() {
+    $input = "===== Level5 =====";
+    $expected = "<h5>Level5</h5>";
+    $actual = $this->target->toHtml($input);
+    $this->assertEquals($actual,$expected);
+  }
+  
+  /**
+   * @test
+   */
+  public function toHtml_level6() {
+    $input = "====== Level6 ======";
+    $expected = "<h6>Level6</h6>";
+    $actual = $this->target->toHtml($input);
+    $this->assertEquals($actual,$expected);
+  }  
 }
 ?>
