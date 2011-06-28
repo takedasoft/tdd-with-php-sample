@@ -42,5 +42,14 @@ class WikiEngineImplTest extends PHPUnit_Framework_TestCase {
     $this->target->toHtml(null);
   }
  
+  /**
+   * @test
+   */
+  public function toHtml_Heading() {
+    $input = "= Heading =";
+    $expected = "<h1>Heading</h1>";
+    $actual = $this->target->toHtml($input);
+    $this->assertEquals($actual,$expected);
+  }
 }
 ?>
