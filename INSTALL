@@ -1,0 +1,29 @@
+PHPUnit Manual
+http://www.phpunit.de/manual/3.5/ja/index.html
+
+1. php5.3.6 download
+http://www.php.net/downloads.php
+http://windows.php.net/download/
+
+2. setup php.ini & pear
+
+include_path=".;D:\PHP\pear;d:\php\includes"
+extension_dir = "ext"
+date.timezone = Asia/Tokyo
+
+3. install phpunit
+
+>pear channel-discover pear.phpunit.de
+>pear channel-discover pear.symfony-project.com
+>pear channel-discover components.ez.no
+>pear install phpunit/PHPUnit
+
+4. run
+
+>phpunit -v
+PHPUnit 3.5.14 by Sebastian Bergmann.
+
+>phpunit StackTest.php
+.
+Time: 1 second, Memory: 3.00Mb
+OK (1 test, 5 assertions)

@@ -1,0 +1,7 @@
+This project will demonstrate TDD with PHPUnit.
+Refer to http://www.slideshare.net/shuji_w6e/tdd-handson .
+
+You can try Scala version also:
+http://github.com/ymnk/tdd-with-scala-sample
+
+> phpunit --verbose test/sample/WikiEngineImplTest.
