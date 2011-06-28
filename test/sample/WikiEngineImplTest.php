@@ -27,5 +27,12 @@ class WikiEngineImplTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals($actual,$expected);
   }
 
+  /**
+   * @test
+   */
+  public function implements_WikiEngine() {
+    $this->assertInstanceOf("WikiEngine", $this->target);
+  }
+  
 }
 ?>
