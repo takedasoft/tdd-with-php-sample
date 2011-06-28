@@ -33,6 +33,14 @@ class WikiEngineImplTest extends PHPUnit_Framework_TestCase {
   public function implements_WikiEngine() {
     $this->assertInstanceOf("WikiEngine", $this->target);
   }
-  
+ 
+  /**
+   * @test
+   * @expectedException InvalidArgumentException
+   */
+  public function toHtml_null() {
+    $this->target->toHtml(null);
+  }
+ 
 }
 ?>
